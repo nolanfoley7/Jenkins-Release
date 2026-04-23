@@ -3,6 +3,199 @@
 @{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bring Costco to Stillwater, OK</title>
+    <style>
+        /* CSS STYLES */
+        :root {
+            --costco-blue: #005daa;
+            --costco-red: #e31837;
+            --text-dark: #333;
+            --bg-light: #f9f9f9;
+        }
 
-<p>Use this page to detail your site's privacy policy.</p>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: #fff;
+        }
+
+        /* Header / Navigation Bar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .contact-btn {
+            background-color: black;
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Main Content Grid */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 80px;
+            gap: 40px;
+        }
+
+        .row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .image-col {
+            flex: 1;
+        }
+
+        .image-col img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .text-col {
+            flex: 1;
+        }
+
+        .reason-tag {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .text-col h2 {
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .text-col p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #ddd;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><strong>BRINGCOSTCO.COM</strong></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Why Stillwater</a></li>
+                <li><a href="#">Visitors</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#" class="contact-btn">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Stillwater, OK: A Perfect Partnership for Costco</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="image-col">
+                <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=1000" alt="Costco Interior">
+            </div>
+            <div class="text-col">
+                <span class="reason-tag">Reason 1</span>
+                <h2>Growing and Loyal Local Customer Base</h2>
+                <p>Stillwater's population is booming, driven by the presence of Oklahoma State University (OSU). There is a strong community of residents, students, and local businesses that currently travel long distances to shop at wholesale clubs. Costco would capture this loyal demand immediately.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="image-col">
+                <img src="https://images.unsplash.com/photo-1605371924599-2d0365da1ae0?auto=format&fit=crop&q=80&w=1000" alt="Costco Gas and Storefront">
+            </div>
+            <div class="text-col">
+                <span class="reason-tag">Reason 2</span>
+                <h2>Significant Regional and Tourism Hub</h2>
+                <p>Costco would act as a major regional destination, pulling customers from neighboring rural counties. By leveraging the constant traffic of visitors coming for OSU sports, cultural events, and graduation weekends, Costco would see massive spikes in seasonal and weekend revenue.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="image-col">
+                <img src="https://images.unsplash.com/photo-1541339907198-e08756edd811?auto=format&fit=crop&q=80&w=1000" alt="OSU Stadium Area">
+            </div>
+            <div class="text-col">
+                <span class="reason-tag">Reason 3</span>
+                <h2>Economic Catalysis and Infrastructure</h2>
+                <p>Opening a Costco creates hundreds of jobs and increases the local tax base significantly. Stillwater's infrastructure is prepared for expansion, and the strategic location between OKC and Tulsa makes it an ideal logistics point for long-term growth and community investment.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div>Terms &nbsp; Privacy &nbsp; 𝕏 &nbsp; 🅕 &nbsp; 🅘</div>
+        <div>&copy; 2024 Bring Costco to Stillwater, OK</div>
+    </footer>
+
+</body>
+</html>
