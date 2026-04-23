@@ -4,18 +4,226 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">I like your hotdogs</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Bring Costco to Stillwater, OK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+          --red:    #C8102E;
+          --blue:   #003087;
+          --gold:   #F4C430;
+          --cream:  #FAF6EF;
+          --ink:    #1A1A1A;
+          --muted:  #6B6B6B;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
 
-<div>
-    <h1>
-        Howdy Costcooooo!!!!! PLEEEEEEEASE come to grand ole' stilly!!!
-    </h1>
-</div>
+        /* HERO */
+        .hero {
+          position: relative; background: var(--blue); min-height: 92vh;
+          display: flex; flex-direction: column; align-items: center;
+          justify-content: center; text-align: center; padding: 80px 40px 60px; overflow: hidden;
+        }
+        .hero::before {
+          content: ''; position: absolute; inset: 0;
+          background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 80px);
+        }
+        .hero-eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.35em; color: var(--gold); margin-bottom: 20px; position: relative; }
+        .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(5rem, 12vw, 11rem); line-height: 0.9; color: #fff; position: relative; text-shadow: 6px 6px 0 var(--red); }
+        .hero h1 span { display: block; color: var(--gold); text-shadow: 4px 4px 0 var(--red); }
+        .hero-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; color: rgba(255,255,255,0.8); margin-top: 24px; position: relative; max-width: 540px; }
+        .hero-cta { margin-top: 40px; position: relative; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+        .btn { display: inline-block; padding: 16px 40px; font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.1em; text-decoration: none; border-radius: 4px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; border: none; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+        .btn-primary { background: var(--red); color: #fff; }
+        .btn-secondary { background: var(--gold); color: var(--ink); }
+        .scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.4); font-size: 0.8rem; letter-spacing: 0.2em; animation: bounce 2s infinite; }
+         /*keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} } */
 
-<div>
-        <h2>Make it look like this please</h2>
-    <img src="~/images/costco.jpg" width="400" height="300" />
-</div>
+        /* STATS */
+        .stats-bar { background: var(--red); display: flex; justify-content: center; }
+        .stat { flex: 1; max-width: 260px; padding: 32px 24px; text-align: center; border-right: 1px solid rgba(255,255,255,0.2); }
+        .stat:last-child { border-right: none; }
+        .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--gold); line-height: 1; }
+        .stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.85); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 6px; }
+
+        /* SECTIONS */
+        .section { max-width: 1100px; margin: 0 auto; padding: 90px 40px; }
+        .section-tag { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; letter-spacing: 0.3em; color: var(--red); margin-bottom: 12px; }
+        h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4.2rem); line-height: 1; color: var(--blue); margin-bottom: 28px; }
+        p { font-size: 1.05rem; line-height: 1.75; color: #444; max-width: 680px; }
+
+        /* WHY CARDS */
+        .why-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; margin-top: 56px; }
+        .why-card { background: #fff; border-top: 5px solid var(--blue); padding: 32px 28px; border-radius: 2px; box-shadow: 4px 4px 0 var(--gold); transition: transform 0.2s; }
+        .why-card:hover { transform: translateY(-4px); }
+        .why-icon { font-size: 2.4rem; margin-bottom: 16px; }
+        .why-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.05em; color: var(--blue); margin-bottom: 10px; }
+        .why-card p { font-size: 0.95rem; color: var(--muted); max-width: none; }
+
+        /* PHOTO SECTION */
+        .photo-section { background: var(--blue); padding: 90px 40px; }
+        .photo-inner { max-width: 1100px; margin: 0 auto; }
+        .photo-inner .section-tag { color: var(--gold); }
+        .photo-inner h2 { color: #fff; }
+        .photo-inner p  { color: rgba(255,255,255,0.7); }
+        .photo-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 260px 260px; gap: 16px; margin-top: 48px; }
+        .photo-slot { background: rgba(255,255,255,0.08); border: 2px dashed rgba(255,255,255,0.3); border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: rgba(255,255,255,0.45); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; overflow: hidden; position: relative; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+        .photo-slot:hover { border-color: var(--gold); background: rgba(255,255,255,0.12); }
+        .photo-slot.large { grid-row: span 2; }
+        .slot-icon { font-size: 2.5rem; transition: transform 0.2s; }
+        .photo-slot:hover .slot-icon { transform: scale(1.15); }
+        .slot-label { font-size: 0.75rem; text-align: center; padding: 0 16px; }
+
+        /* QUOTE */
+        .quote-band { background: var(--gold); padding: 72px 40px; text-align: center; }
+        .quote-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.6rem, 3vw, 2.6rem); color: var(--blue); max-width: 780px; margin: 0 auto 20px; line-height: 1.35; }
+        .quote-attr { font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(0,48,135,0.6); }
+
+        /* PETITION */
+        .petition { background: var(--ink); padding: 90px 40px; text-align: center; }
+        .petition h2 { color: var(--gold); font-size: clamp(2.5rem, 5vw, 4.5rem); }
+        .petition p { color: rgba(255,255,255,0.7); margin: 20px auto 40px; max-width: 560px; text-align: center; }
+        .petition-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .petition-form input { padding: 16px 24px; font-family: 'DM Sans', sans-serif; font-size: 1rem; border: none; border-radius: 4px; width: 280px; outline: none; }
+        .petition-form input:focus { box-shadow: 0 0 0 3px var(--gold); }
+        .sig-count { margin-top: 32px; font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.15em; color: var(--red); }
+        .sig-count span { color: var(--gold); font-size: 2rem; }
+
+        /* FOOTER */
+        footer { background: var(--blue); padding: 36px 40px; text-align: center; color: rgba(255,255,255,0.45); font-size: 0.85rem; }
+        footer strong { color: rgba(255,255,255,0.8); }
+
+        /* ANIMATIONS */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in.visible { opacity: 1; transform: none; }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-eyebrow">Stillwater, Oklahoma Wants You</div>
+        <h1>Bring<span>Costco</span>Here.</h1>
+        <p class="hero-sub">Our city is growing — it's time our shopping options did too.</p>
+        <div class="hero-cta">
+            <a href="#petition" class="btn btn-primary">Sign the Petition</a>
+            <a href="#why" class="btn btn-secondary">See Why It Matters</a>
+        </div>
+        <div class="scroll-hint">▼ scroll</div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+        <div class="stat"><div class="stat-num">50K+</div><div class="stat-label">Stillwater Residents</div></div>
+        <div class="stat"><div class="stat-num">90+</div><div class="stat-label">Miles to Nearest Costco</div></div>
+        <div class="stat"><div class="stat-num">$1B+</div><div class="stat-label">Annual Consumer Spending</div></div>
+        <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Jobs Created</div></div>
+    </div>
+
+    <!-- WHY -->
+    <div id="why" class="section">
+        <div class="section-tag fade-in">The Case for Costco</div>
+        <h2 class="fade-in">Stillwater Is Ready.</h2>
+        <p class="fade-in">We're a thriving university city with a growing population, strong household incomes, and zero bulk-retail options for miles around. The market is here — it just needs a store to match it.</p>
+        <div class="why-grid">
+            <div class="why-card fade-in"><div class="why-icon">🏫</div><h3>Oklahoma State University</h3><p>Home to 25,000+ students and a massive faculty/staff population — a built-in membership base ready on day one.</p></div>
+            <div class="why-card fade-in"><div class="why-icon">🚗</div><h3>Underserved Market</h3><p>The nearest Costco is over 90 miles away. Residents already drive to Tulsa or OKC just to shop — let's bring those dollars home.</p></div>
+            <div class="why-card fade-in"><div class="why-icon">📈</div><h3>Strong Growth Trajectory</h3><p>Stillwater has seen steady population and economic growth. New neighborhoods, new businesses — a community eager for more retail choices.</p></div>
+            <div class="why-card fade-in"><div class="why-icon">💼</div><h3>Local Jobs & Tax Revenue</h3><p>A new Costco location would create 200+ quality jobs and pump significant sales tax revenue back into city infrastructure.</p></div>
+            <div class="why-card fade-in"><div class="why-icon">🏡</div><h3>Family-Friendly Savings</h3><p>Costco memberships help families stretch budgets further with quality products at wholesale prices every Stillwater household could benefit from.</p></div>
+            <div class="why-card fade-in"><div class="why-icon">🌾</div><h3>Hub for the Region</h3><p>Stillwater is the regional center for Payne County. A Costco here would serve dozens of surrounding rural communities — not just our city limits.</p></div>
+        </div>
+    </div>
+
+    <!-- PHOTOS -->
+    <div class="photo-section">
+        <div class="photo-inner">
+            <div class="section-tag fade-in">Our Community</div>
+            <h2 class="fade-in">Stillwater Is Worth It.</h2>
+            <p class="fade-in">Take a look at the city Costco would be proud to call home.</p>
+            <div class="photo-grid">
+                <!-- TO ADD PHOTOS: Replace a photo-slot div with:
+                     <img src="YOUR-IMAGE.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:4px;"> -->
+                <div class="photo-slot large fade-in">
+                    <div class="slot-icon">🖼️</div>
+                    <div class="slot-label">[ Large Feature Photo ]<br><span style="opacity:0.55;text-transform:none;">e.g. Stillwater skyline or downtown</span></div>
+                </div>
+                <div class="photo-slot fade-in">
+                    <div class="slot-icon">🖼️</div>
+                    <div class="slot-label">[ Community Photo ]</div>
+                </div>
+                <div class="photo-slot fade-in">
+                    <div class="slot-icon">🖼️</div>
+                    <div class="slot-label">[ OSU Campus ]</div>
+                </div>
+                <div class="photo-slot fade-in">
+                    <div class="slot-icon">🖼️</div>
+                    <div class="slot-label">[ Local Neighborhood ]</div>
+                </div>
+                <div class="photo-slot fade-in">
+                    <div class="slot-icon">🖼️</div>
+                    <div class="slot-label">[ Proposed Site / Land ]</div>
+                </div>
+            </div>
+            <p style="margin-top:18px;font-size:0.78rem;color:rgba(255,255,255,0.3);">
+                💡 To add a photo, replace a <code style="color:rgba(255,255,255,0.45)">&lt;div class="photo-slot"&gt;...&lt;/div&gt;</code> block with <code style="color:rgba(255,255,255,0.45)">&lt;img src="photo.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:4px;"&gt;</code>
+            </p>
+        </div>
+    </div>
+
+    <!-- QUOTE -->
+    <div class="quote-band">
+        <div class="quote-text fade-in">"Stillwater isn't just a college town anymore — it's a full-fledged city that deserves full-fledged retail options."</div>
+        <div class="quote-attr fade-in">— A Stillwater Resident</div>
+    </div>
+
+    <!-- PETITION -->
+    <div id="petition" class="petition">
+        <div class="section-tag" style="color:var(--red);">Take Action</div>
+        <h2 class="fade-in">Make Your Voice Heard.</h2>
+        <p class="fade-in">Sign below to show Costco that Stillwater, Oklahoma is open for business — and ready for membership.</p>
+        <div class="petition-form fade-in">
+            <input type="text" placeholder="Your Name" />
+            <input type="email" placeholder="Your Email" />
+            <button class="btn btn-primary" onclick="addSignature(this)">Sign the Petition ✓</button>
+        </div>
+        <div class="sig-count fade-in"><span id="sig-num">1,247</span> Stillwater residents have signed</div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <strong>Bring Costco to Stillwater, OK</strong> — A community-led initiative. Not affiliated with Costco Wholesale Corporation.<br>
+        Stillwater, Oklahoma 74074 &nbsp;|&nbsp; Share this page with your neighbors!
+    </footer>
+
+    <script>
+        function addSignature(btn) {
+          const num = document.getElementById('sig-num');
+          const current = parseInt(num.textContent.replace(/,/g, ''));
+          num.textContent = (current + 1).toLocaleString();
+          btn.textContent = '✓ Signed!';
+          btn.style.background = '#2a7a2a';
+          btn.disabled = true;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              const siblings = [...e.target.parentElement.querySelectorAll('.fade-in:not(.visible)')];
+              siblings.forEach((s, i) => setTimeout(() => s.classList.add('visible'), i * 80));
+            }
+          });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
