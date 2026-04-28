@@ -20,3 +20,82 @@ html {
 body {
   margin-bottom: 60px;
 }
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: bold;
+}
+
+input, textarea, select {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+button[type="submit"] {
+    padding: 0.65rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+    .form-row > div {
+        flex: 1;
+    }
+
+.required {
+    color: red;
+}
+
+.section {
+    margin-bottom: 2.5rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+address {
+    font-style: normal;
+}
+
+hr {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+.char-note {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: -1rem;
+    margin-bottom: 1.25rem;
+}

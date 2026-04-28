@@ -4,23 +4,165 @@
     ViewData["Title"] = "Error";
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Bring Costco to Stillwater, OK</title>
+    <style>
+        <!-- Keeping this styling in here because it is specific to this page -->
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
 
-@if (Model.ShowRequestId)
-{
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
-}
+    <!-- ===== Header ===== -->
+    <header class="section">
+        <nav><!-- Navigation links go here --></nav>
+        <h1>Contact Us</h1>
+        <p>
+            Have a question, want to show your support, or represent a local business or organization?
+            We'd love to hear from you. Together we can make the case for a Costco in Stillwater, Oklahoma.
+        </p>
+    </header>
 
-<h3>Development Mode</h3>
-<p>
-    Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
-</p>
-<p>
-    <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
-    It can result in displaying sensitive information from exceptions to end users.
-    For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
-    and restarting the app.
-</p>
+    <hr />
+
+    <!-- Contact form doesn't actually work -->
+    <section class="section" aria-labelledby="form-heading">
+        <h2 id="form-heading">Send Us a Message</h2>
+        <p>Fields marked <span class="required">*</span> are required.</p>
+
+        <form id="contact-form" action="/submit-contact" method="POST" novalidate>
+
+            <!-- Name -->
+            <div class="form-row">
+                <div>
+                    <label for="first-name">First Name <span class="required">*</span></label>
+                    <input type="text" id="first-name" name="first_name" autocomplete="given-name" required placeholder="Jane" />
+                </div>
+                <div>
+                    <label for="last-name">Last Name <span class="required">*</span></label>
+                    <input type="text" id="last-name" name="last_name" autocomplete="family-name" required placeholder="Smith" />
+                </div>
+            </div>
+
+            <!-- Contact info -->
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required placeholder="jane@example.com" />
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(405) 555-0100" />
+
+            <!-- Who are they? -->
+            <label for="role">I am a… <span class="required">*</span></label>
+            <select id="role" name="role" required>
+                <option value="">— Select one —</option>
+                <option value="resident">Stillwater Resident</option>
+                <option value="student">OSU Student</option>
+                <option value="business_owner">Local Business Owner</option>
+                <option value="community_org">Community Organization</option>
+                <option value="elected_official">Elected Official / City Staff</option>
+                <option value="media">Media / Press</option>
+                <option value="other">Other</option>
+            </select>
+
+            <!-- Reason for contacting -->
+            <label for="subject">Subject <span class="required">*</span></label>
+            <select id="subject" name="subject" required>
+                <option value="">— Select one —</option>
+                <option value="support">I want to show my support</option>
+                <option value="volunteer">I'd like to volunteer or help</option>
+                <option value="business_letter">My business wants to submit a letter of support</option>
+                <option value="media_inquiry">Media / press inquiry</option>
+                <option value="general">General question</option>
+                <option value="other">Other</option>
+            </select>
+
+            <!-- Message -->
+            <label for="message">Message <span class="required">*</span></label>
+            <textarea id="message" name="message" required maxlength="2000"
+                      placeholder="Tell us what you think, ask a question, or share how a Costco in Stillwater would impact you..."></textarea>
+            <p class="char-note">Max 2,000 characters.</p>
+
+            <!-- Newsletter opt-in -->
+            <label>
+                <input type="checkbox" name="subscribe" value="yes" />
+                Keep me updated on campaign news and milestones.
+            </label>
+            <br />
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <hr />
+
+    <!-- ===== Contact us info ===== -->
+    <section class="section" aria-labelledby="contact-info-heading">
+        <h2 id="contact-info-heading">Other Ways to Reach Us</h2>
+
+        <div class="contact-grid">
+
+            <div>
+                <h3>Email</h3>
+                <address>
+                    <a href="mailto:hello@bringcostcotostillwater.com">hello@bringcostcotostillwater.com</a>
+                </address>
+            </div>
+
+            <div>
+                <h3>Social Media</h3>
+                <ul>
+                    <li><a href="#" aria-label="Facebook page">Facebook</a></li>
+                    <li><a href="#" aria-label="Instagram page">Instagram</a></li>
+                    <li><a href="#" aria-label="X / Twitter page">X (Twitter)</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Mailing Address</h3>
+                <address>
+                    Bring Costco to Stillwater<br />
+                    [Street Address]<br />
+                    Stillwater, OK 74074
+                </address>
+            </div>
+
+            <div>
+                <h3>Press Inquiries</h3>
+                <p>Journalists and media: please use the contact form above and select <em>Media / press inquiry</em> as the subject, or email us directly.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- ===== Petition ===== -->
+    <section class="section" aria-labelledby="cta-heading">
+        <h2 id="cta-heading">Not Ready to Send a Message?</h2>
+        <p>
+            You can still make your voice heard — sign our petition or share this campaign with
+            friends, family, and neighbors in Stillwater.
+        </p>
+        <a href="/petition">Sign the Petition</a>
+        &nbsp;&nbsp;
+        <a href="/share">Share This Campaign</a>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+        <p><small>&copy; 2026 Bring Costco to Stillwater. Not affiliated with Costco Wholesale Corporation.</small></p>
+    </footer>
+
+
+</body>
+</html>
