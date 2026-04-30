@@ -99,3 +99,9 @@ hr {
     margin-top: -1rem;
     margin-bottom: 1.25rem;
 }
+
+.textboxbevel {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}

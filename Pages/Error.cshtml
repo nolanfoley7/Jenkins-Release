@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us | Bring Costco to Stillwater, OK</title>
     <style>
-        <!-- Keeping this styling in here because it is specific to this page -->
+        <!-- Keeping this styling in here because it is specific to this page-->
         body {
             font-family: sans-serif;
             line-height: 1.6;
@@ -46,24 +46,24 @@
             <div class="form-row">
                 <div>
                     <label for="first-name">First Name <span class="required">*</span></label>
-                    <input type="text" id="first-name" name="first_name" autocomplete="given-name" required placeholder="Jane" />
+                    <input class="textboxbevel" type="text" id="first-name" name="first_name" autocomplete="given-name" required placeholder="Jane" />
                 </div>
                 <div>
                     <label for="last-name">Last Name <span class="required">*</span></label>
-                    <input type="text" id="last-name" name="last_name" autocomplete="family-name" required placeholder="Smith" />
+                    <input class="textboxbevel" type="text" id="last-name" name="last_name" autocomplete="family-name" required placeholder="Smith" />
                 </div>
             </div>
 
             <!-- Contact info -->
             <label for="email">Email Address <span class="required">*</span></label>
-            <input type="email" id="email" name="email" autocomplete="email" required placeholder="jane@example.com" />
+            <input class="textboxbevel" type="email" id="email" name="email" autocomplete="email" required placeholder="jane@example.com" />
 
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(405) 555-0100" />
+            <input class="textboxbevel" type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(405) 555-0100" />
 
             <!-- Who are they? -->
             <label for="role">I am a… <span class="required">*</span></label>
-            <select id="role" name="role" required>
+            <select class="textboxbevel" id="role" name="role" required>
                 <option value="">— Select one —</option>
                 <option value="resident">Stillwater Resident</option>
                 <option value="student">OSU Student</option>
@@ -76,7 +76,7 @@
 
             <!-- Reason for contacting -->
             <label for="subject">Subject <span class="required">*</span></label>
-            <select id="subject" name="subject" required>
+            <select class="textboxbevel" id="subject" name="subject" required>
                 <option value="">— Select one —</option>
                 <option value="support">I want to show my support</option>
                 <option value="volunteer">I'd like to volunteer or help</option>
@@ -88,13 +88,13 @@
 
             <!-- Message -->
             <label for="message">Message <span class="required">*</span></label>
-            <textarea id="message" name="message" required maxlength="2000"
+            <textarea class="textboxbevel" id="message" name="message" required maxlength="2000"
                       placeholder="Tell us what you think, ask a question, or share how a Costco in Stillwater would impact you..."></textarea>
             <p class="char-note">Max 2,000 characters.</p>
 
             <!-- Newsletter opt-in -->
             <label>
-                <input type="checkbox" name="subscribe" value="yes" />
+                <input class="textboxbevel" type="checkbox" name="subscribe" value="yes" />
                 Keep me updated on campaign news and milestones.
             </label>
             <br />
