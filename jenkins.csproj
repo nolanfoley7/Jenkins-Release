@@ -14,4 +14,8 @@
     <ContainerPort Include="8081" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Mindscape.Raygun4Net.AspNetCore" Version="11.2.5" />
+  </ItemGroup>
+
 </Project>
