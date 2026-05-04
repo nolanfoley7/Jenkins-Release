@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="Mindscape.Raygun4Net.AspNetCore" Version="11.2.5" />
+    <PackageReference Include="Mindscape.Raygun4Net.NetCore" Version="11.2.5" />
   </ItemGroup>
 
 </Project>
